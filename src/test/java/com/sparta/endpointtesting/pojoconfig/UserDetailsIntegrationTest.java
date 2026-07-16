@@ -11,11 +11,6 @@ public class UserDetailsIntegrationTest {
 
     private static Helper apiClient;
 
-    @BeforeAll
-    static void setup() {
-        apiClient = new ApiClient();
-    }
-
     @Test
     @DisplayName("GET /getUserDetailByEmail returns 200 and correct user details")
     void testGetUserDetailsHappyPath() {
