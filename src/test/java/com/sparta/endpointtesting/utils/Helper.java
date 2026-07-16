@@ -87,7 +87,7 @@ public class Helper {
                 .build();
     }
 
-    public Response getUserDetailByEmail(String email) {
+    public static Response getUserDetailByEmail(String email) {
         return RestAssured
                 .given()
                 .baseUri(BASE_URI)
