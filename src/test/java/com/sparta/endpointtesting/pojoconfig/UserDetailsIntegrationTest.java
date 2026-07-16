@@ -1,5 +1,5 @@
 package com.sparta.endpointtesting.pojoconfig;
-import com.spart.endpointtesting.utils.Helper;
+import com.sparta.endpointtesting.utils.Helper;
 import com.sparta.endpointtesting.pojoconfig.pojos.UserDetailsResponse;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
