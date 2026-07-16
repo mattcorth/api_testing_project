@@ -40,27 +40,44 @@
 
 ```text
 api_testing_project
- ├── PROJECT_BOARD.md                 # Scrum Scrum Board representation
+ ├── PROJECT_BOARD.md                 # Scrum Board representation
  ├── pom.xml                          # Project build and dependencies configuration
- └── src/test/java
-      └── com.sparta.api_testing_project
-           ├── client
-           │    └── ApiClient.java    # Handles RestAssured requests
-           ├── pojos                  # Object models mapping response JSON structures
-           │    ├── Brand.java
-           │    ├── BrandResponse.java
-           │    ├── Category.java
-           │    ├── Product.java
-           │    ├── ProductResponse.java
-           │    └── UserType.java
-           ├── service
-           │    └── ProductService.java # Business logic service utilising ApiClient
-           ├── unit                   # Mockito unit tests for service class
-           │    └── ProductServiceUnitTest.java
-           └── integration            # RestAssured integration tests
-                ├── BrandsIntegrationTest.java
-                ├── ProductsIntegrationTest.java
-                └── SearchIntegrationTest.java
+ └── src/test
+      ├── java
+      │    └── com.sparta
+      │         ├── api_testing_project
+      │         │    ├── client
+      │         │    │    └── ApiClient.java          # Decoupled HTTP API client
+      │         │    ├── pojos                       # JSON Response mapping models
+      │         │    │    ├── Brand.java
+      │         │    │    ├── BrandResponse.java
+      │         │    │    ├── Category.java
+      │         │    │    ├── Product.java
+      │         │    │    ├── ProductResponse.java
+      │         │    │    └── UserType.java
+      │         │    ├── service
+      │         │    │    └── ProductService.java     # Filters and parses product lists
+      │         │    └── integration                 # RestAssured integration tests
+      │         │         ├── BrandsIntegrationTest.java
+      │         │         ├── ProductsIntegrationTest.java
+      │         │         └── SearchIntegrationTest.java
+      │         ├── endpointtesting
+      │         │    ├── pojoconfig                  # Team-defined POJO mappings
+      │         │    │    └── pojos
+      │         │    │         ├── Category.java
+      │         │    │         ├── ProductListResponse.java
+      │         │    │         ├── ProductsItem.java
+      │         │    │         └── Usertype.java
+      │         │    ├── utils
+      │         │    │    ├── ApiConfig.java          # Loads environment configuration
+      │         │    │    └── Helper.java             # Shared request specifications helper
+      │         │    ├── GetProductListTest.java     # User Story 1 (GET products list checks)
+      │         │    └── SearchProductUserStoryTest.java # User Story 3 (Search validations TC3.1-TC3.4)
+      │         └── utils
+      │              ├── GitHubConfig.java           # Reads GitHub configuration settings
+      │              └── GitHubApi.java              # Configures spec builders for GitHub comments
+      └── resources
+           └── config.properties                     # Environment properties loader config
 ```
 
 ---

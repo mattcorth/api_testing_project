@@ -30,6 +30,12 @@ This document represents the project's Scrum board for Sprint 1.
 - [x] Create comprehensive `README.md` documentation
 - [x] Verify complete test suite executes successfully via Maven
 - [x] Add CI/CD GitHub Action workflow for automated test execution on PRs
+- [x] Pull team updates: config.properties reader and endpoints configuration setup
+- [x] Re-integrate ApiClient to read base URIs and routes from properties config loader
+- [x] Re-integrate GitHub comment API specification helper classes (`GitHubConfig`, `GitHubApi`)
+- [x] Fix push protection blocker by removing secrets from history and migrating to placeholders and system environment variable fallbacks
+- [x] Implement test coverage for User Story 1 using local POJO mappings (`GetProductListTest.java`)
+- [x] Implement test coverage for User Story 3 search keywords happy/sad paths (`SearchProductUserStoryTest.java`)
 
 ### 📝 6. Notes
 
