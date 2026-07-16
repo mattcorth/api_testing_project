@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 public class UserDetailsIntegrationTest {
 
-    private static Helper apiClient;
 
     @Test
     @DisplayName("GET /getUserDetailByEmail returns 200 and correct user details")
@@ -17,7 +16,7 @@ public class UserDetailsIntegrationTest {
 
         String validEmail = "test@test.com";
 
-        Response response = apiClient.getUserDetailByEmail(validEmail);
+        Response response = Helper.getUserDetailByEmail(validEmail);
 
         Assertions.assertEquals(200, response.getStatusCode());
 
@@ -39,7 +38,7 @@ public class UserDetailsIntegrationTest {
 
         String invalidEmail = "invalid-user-12345@test.com";
 
-        Response response = apiClient.getUserDetailByEmail(invalidEmail);
+        Response response = Helper.getUserDetailByEmail(invalidEmail);
 
         Assertions.assertEquals(200, response.getStatusCode());
 
