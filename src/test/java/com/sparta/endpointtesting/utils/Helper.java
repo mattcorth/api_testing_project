@@ -90,4 +90,36 @@ public class Helper {
 
     }
 
+    public static Response getListOfBrands() {
+        RestAssured.registerParser("text/html", Parser.JSON);
+
+        return response = RestAssured
+                .given()
+                .baseUri(ApiConfig.getBaseUri())
+                .when()
+                .get(ApiConfig.getBrandsList())
+                .then()
+                .log().all()
+                .extract().response();
+    }
+
+    public static Response putBrandRequest() {
+        return RestAssured
+                .given()
+                .baseUri(ApiConfig.getBaseUri())
+                .header("Content-Type", "application/json")
+                .body("""
+                {
+                    "id": 1,
+                    "brand": "Updated Brand"
+                }
+                """)
+                .when()
+                .put(ApiConfig.getBrandsList())
+                .then()
+                .log().all()
+                .extract().response();
+
+    }
+
 }
