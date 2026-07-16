@@ -65,6 +65,7 @@ api_testing_project
       │         ├── endpointtesting
       │         │    ├── pojoconfig                  # Team-defined POJO mappings
       │         │    │    └── pojos
+      │         │    │         ├── AccountResponse.java
       │         │    │         ├── BrandList.java
       │         │    │         ├── BrandsItem.java
       │         │    │         ├── Category.java
@@ -72,13 +73,18 @@ api_testing_project
       │         │    │         ├── ProductsItem.java
       │         │    │         ├── UserDetails.java
       │         │    │         ├── UserDetailsResponse.java
+      │         │    │         ├── VerifyUserResponse.java
       │         │    │         └── Usertype.java
       │         │    ├── utils
       │         │    │    ├── ApiConfig.java          # Loads environment configuration
       │         │    │    └── Helper.java             # Shared request specifications helper
+      │         │    ├── CreateAccountTest.java      # User Story 6 (POST create account checks)
+      │         │    ├── DeleteAccountTest.java      # User Story 6 (DELETE account checks)
+      │         │    ├── GetBrandTest.java           # User Story 2 (GET brands catalog checks)
       │         │    ├── GetProductListTest.java     # User Story 1 (GET products list checks)
       │         │    ├── SearchProductUserStoryTest.java # User Story 3 (Search validations TC3.1-TC3.4)
-      │         │    └── UpdateUserAccountTest.java  # User Story 5 (Account update PUT checks)
+      │         │    ├── UpdateUserAccountTest.java  # User Story 5 (Account update PUT checks)
+      │         │    └── VerifyUserLoginTest.java    # User Story 4 (POST login credentials checks)
       │         └── utils
       │              ├── GitHubConfig.java           # Reads GitHub configuration settings
       │              └── GitHubApi.java              # Configures spec builders for GitHub comments
@@ -92,11 +98,17 @@ The `com.sparta.endpointtesting` package organizes the team's custom models and 
     *   `ProductListResponse` / `ProductsItem`: Wraps the store's complete product listings.
     *   `BrandList` / `BrandsItem`: Models the manufacturer brands catalog payload.
     *   `UserDetailsResponse` / `UserDetails`: Deserialises client details (name, email, shipping/billing address) for user endpoints.
+    *   `AccountResponse`: Models responses for account registration/creation and deletion.
+    *   `VerifyUserResponse`: Deserialises authentication payloads for verification checks.
     *   `Category` / `Usertype`: Handles inner nested category properties.
 *   **User Story Tests**:
     *   `GetProductListTest`: Tests products retrieval happy/sad paths (User Story 1).
-    *   `SearchProductUserStoryTest`: Validates keywords search and missing parameter payloads (User Story 3).
+    *   `GetBrandTest`: Asserts brands catalog retrieval and sad paths (User Story 2).
+    *   `SearchProductUserStoryTest` / `SearchProductPojoTest`: Validates keyword searching logical flow and JSON mapping checks (User Story 3).
+    *   `VerifyUserLoginTest`: Checks user email and password authentication verify endpoints (User Story 4).
     *   `UpdateUserAccountTest`: Checks user profile details update operations (User Story 5).
+    *   `CreateAccountTest` / `DeleteAccountTest`: Verifies user registration and profile deletion endpoint behaviors (User Story 6).
+
 
 
 ---
