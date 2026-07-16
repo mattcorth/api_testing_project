@@ -61,7 +61,7 @@ public class Helper {
                         "email", email,
                         "password", password
                 )).build();
-    }
+    }*/
 
     public static RequestSpecification updateAccountRequest(String name, String email, String password,
                                                             String firstName, String lastName) {
